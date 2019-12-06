@@ -1,0 +1,31 @@
+management:
+  endpoint:
+    health:
+      show-details: always
+server:
+  port: 8888
+spring:
+  application:
+    name: vendorsbar-config-service
+  security:
+    user:
+      name: user
+      password: 61f4d703-7115-4a5c-8409-9e4ce8360347
+  cloud:
+    consul:
+      host: 118.190.56.31
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+        tags: version=1.0
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}
+        healthCheckInterval: 15s
+        health-check-url: http://180.152.20.163:${server.port}/actuator/health
+    config:
+      server:
+        git:
+          uri: http://gitlab.vichinfo.com/vich-dev-group/vendorsbar-order-config.git
+          search-paths: common-config,order-config,product-config
+          username: shy.liu@canyangroup.com
+          password: Lsy971023
+          basedir: ./config
