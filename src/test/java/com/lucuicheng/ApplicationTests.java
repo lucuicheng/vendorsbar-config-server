@@ -1,4 +1,4 @@
-package com.vich;
+package com.lucuicheng;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
