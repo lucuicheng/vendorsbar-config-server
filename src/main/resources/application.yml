@@ -13,14 +13,14 @@ spring:
       password: 61f4d703-7115-4a5c-8409-9e4ce8360347
   cloud:
     consul:
-      host: 118.190.56.31
+      host: 192.168.0.100
       port: 8500
       discovery:
         prefer-ip-address: true
         tags: version=1.0
         instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}
         healthCheckInterval: 15s
-        health-check-url: http://180.152.20.163:${server.port}/actuator/health
+        health-check-url: http://${spring.cloud.client.ip-address}:${server.port}/actuator/health
     config:
       server:
         git:
